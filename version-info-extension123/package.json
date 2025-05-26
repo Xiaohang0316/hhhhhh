@@ -1,0 +1,50 @@
+{
+    "name": "version-info-extension123",
+    "displayName": "版本信息插件",
+    "description": "一个用于显示和管理版本信息的VS Code插件",
+    "version": "1.0.0",
+    "publisher": "your-publisher-name",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "activationEvents": [
+        "onCommand:versionInfo.show",
+        "onCommand:versionInfo.refresh",
+        "onCommand:versionInfo.showNodeVersions"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "versionInfo.show",
+                "title": "显示版本信息"
+            },
+            {
+                "command": "versionInfo.refresh",
+                "title": "刷新版本信息"
+            },
+            {
+                "command": "versionInfo.showNodeVersions",
+                "title": "显示Node.js版本管理"
+            }
+        ],
+        "views": {
+            "explorer": [
+                {
+                    "id": "versionInfoView",
+                    "name": "版本信息",
+                    "icon": "cancel_red.svg"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.60.0",
+        "@types/node": "^14.14.31",
+        "typescript": "^4.3.5"
+    }
+}
