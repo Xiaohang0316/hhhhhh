@@ -6,7 +6,7 @@
 set -e  # 遇到错误时退出
 
 # 默认项目名称
-PROJECT_NAME=${1:-"version-info-extension123"}
+PROJECT_NAME=${1:-"version-info-extension456"}
 
 echo "🚀 开始创建 VS Code 插件项目: $PROJECT_NAME"
 
