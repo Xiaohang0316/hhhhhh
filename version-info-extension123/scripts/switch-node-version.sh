@@ -27,10 +27,10 @@ load_nvm() {
     fi
 }
 
-# 加载nvm
-if ! load_nvm; then
-    exit 1
-fi
+# # 加载nvm
+# if ! load_nvm; then
+#     exit 1
+# fi
 
 # 确保版本号以v开头
 if [[ ! $VERSION =~ ^v ]]; then
@@ -40,9 +40,9 @@ fi
 echo "正在切换到Node.js $VERSION..."
 
 # 检查版本是否已安装
-if nvm list | grep -q "$VERSION"; then
+if n list | grep -q "$VERSION"; then
     echo "版本 $VERSION 已安装，正在切换..."
-    nvm use "$VERSION"
+    n use "$VERSION"
     if [ $? -eq 0 ]; then
         echo "成功切换到 Node.js $VERSION"
         echo "当前版本: $(node --version)"
@@ -53,14 +53,14 @@ if nvm list | grep -q "$VERSION"; then
     fi
 else
     echo "版本 $VERSION 未安装，正在下载并安装..."
-    nvm install "$VERSION"
+    echo "000316" | sudo -S n install "$VERSION"
     if [ $? -eq 0 ]; then
         echo "成功安装并切换到 Node.js $VERSION"
         echo "当前版本: $(node --version)"
         echo "当前NPM版本: $(npm --version)"
         
         # 设置为默认版本
-        nvm alias default "$VERSION"
+        # n alias default "$VERSION"
         echo "已设置 $VERSION 为默认版本"
     else
         echo "安装失败，请检查网络连接或版本号是否正确"
