@@ -175,7 +175,6 @@ export class VersionPanel {
 
     private _getHtmlForWebview(webview: vscode.Webview, nodeVersionInfo: any) {
         const versionInfo = this.versionProvider.getVersionInfo();
-        const nodeVersionPlan = this.nodeVersionPanel
         
 
         return `<!DOCTYPE html>

@@ -1,0 +1,783 @@
+<!DOCTYPE html><html><head>
+      <title>README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/xiaohang/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h2 id="️-如何开发一个-vs-code-插件">🛠️ 如何开发一个 VS Code 插件 </h2>
+<h2 id="官方文档讲述开发步骤">官方文档讲述开发步骤 </h2>
+<h3 id="第一步准备开发环境">第一步：准备开发环境 </h3>
+<ol>
+<li>
+<p>安装 <a href="https://nodejs.org/">Node.js</a>（建议使用长期支持版 LTS）</p>
+</li>
+<li>
+<p>安装 <a href="https://code.visualstudio.com/">Visual Studio Code</a></p>
+</li>
+<li>
+<p>安装扩展开发工具：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> yo generator-code
+</code></pre></li>
+<li>
+<p>可选工具：</p>
+<ul>
+<li>Git：用于版本管理与共享代码</li>
+<li>ESLint + Prettier：统一代码风格</li>
+<li>VSCE：用于打包发布插件</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="第二步初始化插件项目">第二步：初始化插件项目 </h3>
+<p>使用 Yeoman 创建插件模板：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>yo code
+</code></pre><p>你将被提示选择：</p>
+<ul>
+<li>插件类型（JavaScript/TypeScript/WebView 等）</li>
+<li>插件名称与标识</li>
+<li>是否初始化 Git 仓库</li>
+<li>是否添加示例命令</li>
+</ul>
+<p>完成后将生成一个可直接运行的插件项目。</p>
+<hr>
+<h3 id="第三步项目结构详解">第三步：项目结构详解 </h3>
+<pre data-role="codeBlock" data-info="plaintext" class="language-plaintext plaintext"><code>my-extension/
+├── .vscode/               # 本地调试配置
+├── media/                 # 插件图标或 WebView 资源
+├── src/extension.ts       # 插件主入口（TypeScript）
+├── package.json           # 插件元信息，功能定义
+├── tsconfig.json          # TypeScript 配置文件
+├── .gitignore             # Git 忽略文件列表
+└── README.md              # 插件说明文档
+</code></pre><p><code>package.json</code> 中定义了插件名称、描述、命令、菜单项、激活方式等，是插件行为的核心配置文件。</p>
+<hr>
+<h3 id="第四步编写插件逻辑">第四步：编写插件逻辑 </h3>
+<p>插件主函数通常写在 <code>src/extension.ts</code> 中。核心结构包括两个方法：</p>
+<ul>
+<li><code>activate(context: vscode.ExtensionContext)</code>：插件激活时执行</li>
+<li><code>deactivate()</code>：插件卸载前执行</li>
+</ul>
+<p>示例命令注册：</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-let">let</span> disposable <span class="token operator">=</span> vscode<span class="token punctuation">.</span>commands<span class="token punctuation">.</span><span class="token function">registerCommand</span><span class="token punctuation">(</span><span class="token string">'extension.helloWorld'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  vscode<span class="token punctuation">.</span>window<span class="token punctuation">.</span><span class="token function">showInformationMessage</span><span class="token punctuation">(</span><span class="token string">'Hello from HelloWorld Plugin!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+context<span class="token punctuation">.</span>subscriptions<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>除了命令，还可以扩展：</p>
+<ul>
+<li>Tree View：如 Git 插件左侧资源树</li>
+<li>WebView：加载自定义 HTML 界面</li>
+<li>CodeLens、Hover、StatusBar 等 VS Code API 提供的功能</li>
+</ul>
+<hr>
+<h3 id="第五步运行与调试">第五步：运行与调试 </h3>
+<p>在 VS Code 中按 <code>F5</code> 会自动：</p>
+<ol>
+<li>编译插件代码（TypeScript）</li>
+<li>启动 Extension Development Host 实例</li>
+<li>载入你的插件并允许测试其功能</li>
+</ol>
+<p>也可以在 <code>launch.json</code> 中自定义调试参数。</p>
+<hr>
+<h3 id="第六步插件打包与发布">第六步：插件打包与发布 </h3>
+<ol>
+<li>
+<p>安装打包工具 VSCE：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> @vscode/vsce
+</code></pre></li>
+<li>
+<p>构建并打包插件：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>vsce package
+</code></pre></li>
+<li>
+<p>注册并登录 Publisher：<a href="https://marketplace.visualstudio.com/manage">注册页面</a></p>
+</li>
+<li>
+<p>发布插件：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>vsce publish
+</code></pre></li>
+</ol>
+<hr>
+<h2 id="ai-开发">AI 开发 </h2>
+<ol>
+<li>
+<p>梳理需求</p>
+<ol>
+<li>开发环境信息</li>
+<li>Node 版本切换</li>
+<li>Function List 和 跳转</li>
+</ol>
+</li>
+<li>
+<p>使用 claude 和 chatgpt 完成</p>
+<ol>
+<li>生成一个 当前环境版本信息插件 包含 vscode node git npm 使用 bash 脚本的形式展示<br>
+在 win 环境下获取版本信息时， 使用 .bat 文件，运行失败，将这段判断全部删除，使用 .sh 文件获取信息<br>
+<img src="image-4.png" alt="alt text"></li>
+</ol>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>     <span class="token comment">#!/bin/bash</span>
+
+ <span class="token comment"># VS Code版本信息插件自动生成脚本</span>
+ <span class="token comment"># 使用方法: bash create-vscode-plugin.sh [项目名称]</span>
+
+ <span class="token builtin class-name">set</span> <span class="token parameter variable">-e</span>  <span class="token comment"># 遇到错误时退出</span>
+
+ <span class="token comment"># 默认项目名称</span>
+ <span class="token assign-left variable">PROJECT_NAME</span><span class="token operator">=</span><span class="token variable">${1<span class="token operator">:-</span>"version-info-extension456"}</span>
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"🚀 开始创建 VS Code 插件项目: <span class="token variable">$PROJECT_NAME</span>"</span>
+
+ <span class="token comment"># 创建项目根目录</span>
+ <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> <span class="token string">"<span class="token variable">$PROJECT_NAME</span>"</span>
+ <span class="token builtin class-name">cd</span> <span class="token string">"<span class="token variable">$PROJECT_NAME</span>"</span>
+
+ <span class="token comment"># 创建目录结构</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"📁 创建目录结构..."</span>
+ <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> src/webview
+ <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> scripts
+ <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> media
+ <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> .vscode
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"📝 创建 package.json..."</span>
+ <span class="token function">cat</span> <span class="token operator">&gt;</span> package.json <span class="token operator">&lt;&lt;</span> <span class="token string">'EOF'</span>
+ <span class="token punctuation">{</span>
+   <span class="token string">"name"</span><span class="token builtin class-name">:</span> <span class="token string">"version-info-extension"</span>,
+   <span class="token string">"displayName"</span><span class="token builtin class-name">:</span> <span class="token string">"版本信息查看器"</span>,
+   <span class="token string">"description"</span><span class="token builtin class-name">:</span> <span class="token string">"显示 VS Code、Node.js 和 Git 版本信息"</span>,
+   <span class="token string">"version"</span><span class="token builtin class-name">:</span> <span class="token string">"1.0.0"</span>,
+   <span class="token string">"engines"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+     <span class="token string">"vscode"</span><span class="token builtin class-name">:</span> <span class="token string">"^1.74.0"</span>
+   <span class="token punctuation">}</span>,
+   <span class="token string">"categories"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token string">"Other"</span><span class="token punctuation">]</span>,
+   <span class="token string">"activationEvents"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token string">"onStartupFinished"</span><span class="token punctuation">]</span>,
+   <span class="token string">"main"</span><span class="token builtin class-name">:</span> <span class="token string">"./out/extension.js"</span>,
+   <span class="token string">"contributes"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+     <span class="token string">"commands"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+       <span class="token punctuation">{</span>
+         <span class="token string">"command"</span><span class="token builtin class-name">:</span> <span class="token string">"versionInfo.show"</span>,
+         <span class="token string">"title"</span><span class="token builtin class-name">:</span> <span class="token string">"显示版本信息"</span>,
+         <span class="token string">"category"</span><span class="token builtin class-name">:</span> <span class="token string">"版本信息"</span>
+       <span class="token punctuation">}</span>,
+       <span class="token punctuation">{</span>
+         <span class="token string">"command"</span><span class="token builtin class-name">:</span> <span class="token string">"versionInfo.refresh"</span>,
+         <span class="token string">"title"</span><span class="token builtin class-name">:</span> <span class="token string">"刷新版本信息"</span>,
+         <span class="token string">"category"</span><span class="token builtin class-name">:</span> <span class="token string">"版本信息"</span>
+       <span class="token punctuation">}</span>
+     <span class="token punctuation">]</span>,
+     <span class="token string">"views"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+       <span class="token string">"explorer"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+         <span class="token punctuation">{</span>
+           <span class="token string">"id"</span><span class="token builtin class-name">:</span> <span class="token string">"versionInfoView"</span>,
+           <span class="token string">"name"</span><span class="token builtin class-name">:</span> <span class="token string">"版本信息"</span>,
+           <span class="token string">"when"</span><span class="token builtin class-name">:</span> <span class="token string">"true"</span>
+         <span class="token punctuation">}</span>
+       <span class="token punctuation">]</span>
+     <span class="token punctuation">}</span>,
+     <span class="token string">"viewsContainers"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+       <span class="token string">"panel"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+         <span class="token punctuation">{</span>
+           <span class="token string">"id"</span><span class="token builtin class-name">:</span> <span class="token string">"versionInfoPanel"</span>,
+           <span class="token string">"title"</span><span class="token builtin class-name">:</span> <span class="token string">"版本信息"</span>,
+           <span class="token string">"icon"</span><span class="token builtin class-name">:</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span>info<span class="token variable">)</span></span>"</span>
+         <span class="token punctuation">}</span>
+       <span class="token punctuation">]</span>
+     <span class="token punctuation">}</span>,
+     <span class="token string">"menus"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+       <span class="token string">"view/title"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+         <span class="token punctuation">{</span>
+           <span class="token string">"command"</span><span class="token builtin class-name">:</span> <span class="token string">"versionInfo.refresh"</span>,
+           <span class="token string">"when"</span><span class="token builtin class-name">:</span> <span class="token string">"view == versionInfoView"</span>,
+           <span class="token string">"group"</span><span class="token builtin class-name">:</span> <span class="token string">"navigation"</span>
+         <span class="token punctuation">}</span>
+       <span class="token punctuation">]</span>
+     <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>,
+   <span class="token string">"scripts"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+     <span class="token string">"vscode:prepublish"</span><span class="token builtin class-name">:</span> <span class="token string">"npm run compile"</span>,
+     <span class="token string">"compile"</span><span class="token builtin class-name">:</span> <span class="token string">"tsc -p ./"</span>,
+     <span class="token string">"watch"</span><span class="token builtin class-name">:</span> <span class="token string">"tsc -watch -p ./"</span>
+   <span class="token punctuation">}</span>,
+   <span class="token string">"devDependencies"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+     <span class="token string">"@types/vscode"</span><span class="token builtin class-name">:</span> <span class="token string">"^1.74.0"</span>,
+     <span class="token string">"@types/node"</span><span class="token builtin class-name">:</span> <span class="token string">"16.x"</span>,
+     <span class="token string">"typescript"</span><span class="token builtin class-name">:</span> <span class="token string">"^4.9.4"</span>
+   <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+ EOF
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"📝 创建 tsconfig.json..."</span>
+ <span class="token function">cat</span> <span class="token operator">&gt;</span> tsconfig.json <span class="token operator">&lt;&lt;</span> <span class="token string">'EOF'</span>
+ <span class="token punctuation">{</span>
+     <span class="token string">"compilerOptions"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+         <span class="token string">"module"</span><span class="token builtin class-name">:</span> <span class="token string">"commonjs"</span>,
+         <span class="token string">"target"</span><span class="token builtin class-name">:</span> <span class="token string">"ES2020"</span>,
+         <span class="token string">"outDir"</span><span class="token builtin class-name">:</span> <span class="token string">"out"</span>,
+         <span class="token string">"lib"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+             <span class="token string">"ES2020"</span>
+         <span class="token punctuation">]</span>,
+         <span class="token string">"sourceMap"</span><span class="token builtin class-name">:</span> true,
+         <span class="token string">"rootDir"</span><span class="token builtin class-name">:</span> <span class="token string">"src"</span>,
+         <span class="token string">"strict"</span><span class="token builtin class-name">:</span> <span class="token boolean">true</span>
+     <span class="token punctuation">}</span>,
+     <span class="token string">"exclude"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+         <span class="token string">"node_modules"</span>,
+         <span class="token string">".vscode-test"</span>
+     <span class="token punctuation">]</span>
+ <span class="token punctuation">}</span>
+ EOF
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"📝 创建 .gitignore..."</span>
+ <span class="token function">cat</span> <span class="token operator">&gt;</span> .gitignore <span class="token operator">&lt;&lt;</span> <span class="token string">'EOF'</span>
+ out/
+ node_modules/
+ .vscode-test/
+ *.vsix
+ .DS_Store
+ EOF
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"📝 创建 README.md..."</span>
+ <span class="token function">cat</span> <span class="token operator">&gt;</span> README.md <span class="token operator">&lt;&lt;</span> <span class="token string">'EOF'</span>
+ <span class="token comment"># 版本信息查看器</span>
+
+ 这是一个VS Code插件，用于显示当前系统中VS Code、Node.js、Git等工具的版本信息。
+
+ <span class="token comment">## 功能特性</span>
+
+ - 📊 显示 VS Code 版本
+ - 🟢 显示 Node.js 版本
+ - 📁 显示 Git 版本
+ - 📦 显示 NPM 版本
+ - 💻 显示操作系统信息
+ - 🔄 支持手动刷新
+ - 🎨 美观的界面设计
+
+ <span class="token comment">## 安装方法</span>
+
+ <span class="token number">1</span>. 克隆或下载此项目
+ <span class="token number">2</span>. 在项目根目录运行 <span class="token variable"><span class="token variable">`</span><span class="token function">npm</span> <span class="token function">install</span><span class="token variable">`</span></span>
+ <span class="token number">3</span>. 按 F5 启动开发模式
+ <span class="token number">4</span>. 在新窗口中测试插件功能
+
+ <span class="token comment">## 使用方法</span>
+
+ <span class="token number">5</span>. 安装插件后，在VS Code资源管理器侧边栏会出现<span class="token string">"版本信息"</span>面板
+ <span class="token number">6</span>. 使用 <span class="token variable"><span class="token variable">`</span>Ctrl+Shift+P<span class="token variable">`</span></span>（或 <span class="token variable"><span class="token variable">`</span>Cmd+Shift+P<span class="token variable">`</span></span>）打开命令面板
+ <span class="token number">7</span>. 输入<span class="token string">"显示版本信息"</span>或<span class="token string">"刷新版本信息"</span>来执行相应操作
+
+ <span class="token comment">## 支持的平台</span>
+
+ - Windows
+ - macOS
+ - Linux
+
+ <span class="token comment">## 技术栈</span>
+
+ - TypeScript
+ - VS Code Extension API
+ - Bash/Batch 脚本
+ EOF
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"📝 创建 .vscode/launch.json..."</span>
+ <span class="token function">cat</span> <span class="token operator">&gt;</span> .vscode/launch.json <span class="token operator">&lt;&lt;</span> <span class="token string">'EOF'</span>
+ <span class="token punctuation">{</span>
+     <span class="token string">"version"</span><span class="token builtin class-name">:</span> <span class="token string">"0.2.0"</span>,
+     <span class="token string">"configurations"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+         <span class="token punctuation">{</span>
+             <span class="token string">"name"</span><span class="token builtin class-name">:</span> <span class="token string">"Run Extension"</span>,
+             <span class="token string">"type"</span><span class="token builtin class-name">:</span> <span class="token string">"extensionHost"</span>,
+             <span class="token string">"request"</span><span class="token builtin class-name">:</span> <span class="token string">"launch"</span>,
+             <span class="token string">"args"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+                 <span class="token string">"--extensionDevelopmentPath=<span class="token variable">${workspaceFolder}</span>"</span>
+             <span class="token punctuation">]</span>
+         <span class="token punctuation">}</span>
+     <span class="token punctuation">]</span>
+ <span class="token punctuation">}</span>
+ EOF
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"📝 创建 .vscode/settings.json..."</span>
+ <span class="token function">cat</span> <span class="token operator">&gt;</span> .vscode/settings.json <span class="token operator">&lt;&lt;</span> <span class="token string">'EOF'</span>
+ <span class="token punctuation">{</span>
+     <span class="token string">"typescript.preferences.importModuleSpecifier"</span><span class="token builtin class-name">:</span> <span class="token string">"relative"</span>
+ <span class="token punctuation">}</span>
+ EOF
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"📝 创建 src/extension.ts..."</span>
+ <span class="token function">cat</span> <span class="token operator">&gt;</span> src/extension.ts <span class="token operator">&lt;&lt;</span> <span class="token string">'EOF'</span>
+ <span class="token function">import</span> * as vscode from <span class="token string">'vscode'</span><span class="token punctuation">;</span>
+ <span class="token function">import</span> <span class="token punctuation">{</span> VersionProvider <span class="token punctuation">}</span> from <span class="token string">'./versionProvider'</span><span class="token punctuation">;</span>
+ <span class="token function">import</span> <span class="token punctuation">{</span> VersionPanel <span class="token punctuation">}</span> from <span class="token string">'./webview/versionPanel'</span><span class="token punctuation">;</span>
+
+ <span class="token builtin class-name">export</span> <span class="token keyword keyword-function">function</span> activate<span class="token punctuation">(</span>context: vscode.ExtensionContext<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     console.log<span class="token punctuation">(</span><span class="token string">'版本信息插件已激活'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+     const versionProvider <span class="token operator">=</span> new VersionProvider<span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     const versionPanel <span class="token operator">=</span> new VersionPanel<span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+     // 注册树视图提供者
+     vscode.window.registerTreeDataProvider<span class="token punctuation">(</span><span class="token string">'versionInfoView'</span>, versionProvider<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+     // 注册命令
+     const showCommand <span class="token operator">=</span> vscode.commands.registerCommand<span class="token punctuation">(</span><span class="token string">'versionInfo.show'</span>, <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+         versionPanel.createOrShow<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+     const refreshCommand <span class="token operator">=</span> vscode.commands.registerCommand<span class="token punctuation">(</span><span class="token string">'versionInfo.refresh'</span>, <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+         versionProvider.refresh<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         versionPanel.refresh<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+     context.subscriptions.push<span class="token punctuation">(</span>showCommand, refreshCommand<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+     // 自动显示面板
+     versionPanel.createOrShow<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token builtin class-name">export</span> <span class="token keyword keyword-function">function</span> <span class="token function-name function">deactivate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+ EOF
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"📝 创建 src/versionProvider.ts..."</span>
+ <span class="token function">cat</span> <span class="token operator">&gt;</span> src/versionProvider.ts <span class="token operator">&lt;&lt;</span> <span class="token string">'EOF'</span>
+ <span class="token function">import</span> * as vscode from <span class="token string">'vscode'</span><span class="token punctuation">;</span>
+ <span class="token function">import</span> * as <span class="token function">cp</span> from <span class="token string">'child_process'</span><span class="token punctuation">;</span>
+ <span class="token function">import</span> * as path from <span class="token string">'path'</span><span class="token punctuation">;</span>
+
+ <span class="token builtin class-name">export</span> interface VersionInfo <span class="token punctuation">{</span>
+     vscode: string<span class="token punctuation">;</span>
+     node: string<span class="token punctuation">;</span>
+     git: string<span class="token punctuation">;</span>
+     npm: string<span class="token punctuation">;</span>
+     os: string<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token builtin class-name">export</span> class VersionProvider implements vscode.TreeDataProvider<span class="token operator">&lt;</span>VersionItem<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+     private _onDidChangeTreeData: vscode.EventEmitter<span class="token operator">&lt;</span>VersionItem <span class="token operator">|</span> undefined <span class="token operator">|</span> null <span class="token operator">|</span> void<span class="token operator">&gt;</span> <span class="token operator">=</span> new vscode.EventEmitter<span class="token operator">&lt;</span>VersionItem <span class="token operator">|</span> undefined <span class="token operator">|</span> null <span class="token operator">|</span> void<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token builtin class-name">readonly</span> onDidChangeTreeData: vscode.Event<span class="token operator">&lt;</span>VersionItem <span class="token operator">|</span> undefined <span class="token operator">|</span> null <span class="token operator">|</span> void<span class="token operator">&gt;</span> <span class="token operator">=</span> this._onDidChangeTreeData.event<span class="token punctuation">;</span>
+
+     private versionInfo: VersionInfo <span class="token operator">=</span> <span class="token punctuation">{</span>
+         vscode: <span class="token string">''</span>,
+         node: <span class="token string">''</span>,
+         git: <span class="token string">''</span>,
+         npm: <span class="token string">''</span>,
+         os: <span class="token string">''</span>
+     <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+     constructor<span class="token punctuation">(</span>private context: vscode.ExtensionContext<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         this.loadVersionInfo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+
+     refresh<span class="token punctuation">(</span><span class="token punctuation">)</span>: void <span class="token punctuation">{</span>
+         this.loadVersionInfo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         this._onDidChangeTreeData.fire<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+
+     getTreeItem<span class="token punctuation">(</span>element: VersionItem<span class="token punctuation">)</span>: vscode.TreeItem <span class="token punctuation">{</span>
+         <span class="token builtin class-name">return</span> element<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+
+     getChildren<span class="token punctuation">(</span>element?: VersionItem<span class="token punctuation">)</span>: Thenable<span class="token operator">&lt;</span>VersionItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+         <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+             <span class="token builtin class-name">return</span> Promise.resolve<span class="token punctuation">(</span><span class="token punctuation">[</span>
+                 new VersionItem<span class="token punctuation">(</span><span class="token string">'VS Code'</span>, this.versionInfo.vscode, vscode.TreeItemCollapsibleState.None<span class="token punctuation">)</span>,
+                 new VersionItem<span class="token punctuation">(</span><span class="token string">'Node.js'</span>, this.versionInfo.node, vscode.TreeItemCollapsibleState.None<span class="token punctuation">)</span>,
+                 new VersionItem<span class="token punctuation">(</span><span class="token string">'Git'</span>, this.versionInfo.git, vscode.TreeItemCollapsibleState.None<span class="token punctuation">)</span>,
+                 new VersionItem<span class="token punctuation">(</span><span class="token string">'NPM'</span>, this.versionInfo.npm, vscode.TreeItemCollapsibleState.None<span class="token punctuation">)</span>,
+                 new VersionItem<span class="token punctuation">(</span><span class="token string">'操作系统'</span>, this.versionInfo.os, vscode.TreeItemCollapsibleState.None<span class="token punctuation">)</span>
+             <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+         <span class="token builtin class-name">return</span> Promise.resolve<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+
+     private async loadVersionInfo<span class="token punctuation">(</span><span class="token punctuation">)</span>: Promise<span class="token operator">&lt;</span>void<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+         try <span class="token punctuation">{</span>
+             // 获取 VS Code 版本
+             this.versionInfo.vscode <span class="token operator">=</span> vscode.version<span class="token punctuation">;</span>
+
+             // 使用 <span class="token function">bash</span> 脚本获取其他版本信息
+             const scriptPath <span class="token operator">=</span> this.getScriptPath<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             const result <span class="token operator">=</span> await this.executeScript<span class="token punctuation">(</span>scriptPath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             
+             <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 this.parseScriptOutput<span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span> catch <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+             console.error<span class="token punctuation">(</span><span class="token string">'获取版本信息失败:'</span>, error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span>
+
+     private getScriptPath<span class="token punctuation">(</span><span class="token punctuation">)</span>: string <span class="token punctuation">{</span>
+         const scriptName <span class="token operator">=</span> <span class="token string">'get-versions.sh'</span><span class="token punctuation">;</span>
+         <span class="token builtin class-name">return</span> path.join<span class="token punctuation">(</span>this.context.extensionPath, <span class="token string">'scripts'</span>, scriptName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+
+     private executeScript<span class="token punctuation">(</span>scriptPath: string<span class="token punctuation">)</span>: Promise<span class="token operator">&lt;</span>string<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+         <span class="token builtin class-name">return</span> new Promise<span class="token variable"><span class="token punctuation">((</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> {
+             const command <span class="token operator">=</span> `bash "${scriptPath}"`<span class="token punctuation">;</span>
+             
+             cp.exec<span class="token punctuation">(</span>command<span class="token punctuation">,</span> { encoding<span class="token operator">:</span> 'utf8' }<span class="token punctuation">,</span> <span class="token punctuation">(</span>error<span class="token punctuation">,</span> stdout<span class="token punctuation">,</span> stderr<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> {
+                 if <span class="token punctuation">(</span>error<span class="token punctuation">)</span> {
+                     console.error<span class="token punctuation">(</span>'脚本执行错误<span class="token operator">:</span>'<span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                     reject<span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                     return<span class="token punctuation">;</span>
+                 }
+                 resolve<span class="token punctuation">(</span>stdout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             }<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         }<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     }
+
+     private parseScriptOutput<span class="token punctuation">(</span>output<span class="token operator">:</span> string<span class="token punctuation">)</span><span class="token operator">:</span> void {
+         const lines <span class="token operator">=</span> output.split<span class="token punctuation">(</span>'\n'<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         lines.forEach<span class="token punctuation">(</span>line <span class="token operator">=</span><span class="token operator">&gt;</span> {
+             const [key<span class="token punctuation">,</span> value] <span class="token operator">=</span> line.split<span class="token punctuation">(</span>'<span class="token operator">:</span>'<span class="token punctuation">)</span>.map<span class="token punctuation">(</span>s <span class="token operator">=</span><span class="token operator">&gt;</span> s.trim<span class="token punctuation">(</span><span class="token punctuation">))</span></span><span class="token punctuation">;</span>
+             switch <span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 <span class="token keyword keyword-case">case</span> <span class="token string">'NODE'</span><span class="token builtin class-name">:</span>
+                     this.versionInfo.node <span class="token operator">=</span> value <span class="token operator">||</span> <span class="token string">'未安装'</span><span class="token punctuation">;</span>
+                     <span class="token builtin class-name">break</span><span class="token punctuation">;</span>
+                 <span class="token keyword keyword-case">case</span> <span class="token string">'GIT'</span><span class="token builtin class-name">:</span>
+                     this.versionInfo.git <span class="token operator">=</span> value <span class="token operator">||</span> <span class="token string">'未安装'</span><span class="token punctuation">;</span>
+                     <span class="token builtin class-name">break</span><span class="token punctuation">;</span>
+                 <span class="token keyword keyword-case">case</span> <span class="token string">'NPM'</span><span class="token builtin class-name">:</span>
+                     this.versionInfo.npm <span class="token operator">=</span> value <span class="token operator">||</span> <span class="token string">'未安装'</span><span class="token punctuation">;</span>
+                     <span class="token builtin class-name">break</span><span class="token punctuation">;</span>
+                 <span class="token keyword keyword-case">case</span> <span class="token string">'OS'</span><span class="token builtin class-name">:</span>
+                     this.versionInfo.os <span class="token operator">=</span> value <span class="token operator">||</span> <span class="token string">'未知'</span><span class="token punctuation">;</span>
+                     <span class="token builtin class-name">break</span><span class="token punctuation">;</span>
+             <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+
+     getVersionInfo<span class="token punctuation">(</span><span class="token punctuation">)</span>: VersionInfo <span class="token punctuation">{</span>
+         <span class="token builtin class-name">return</span> this.versionInfo<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+
+ class VersionItem extends vscode.TreeItem <span class="token punctuation">{</span>
+     constructor<span class="token punctuation">(</span>
+         public <span class="token builtin class-name">readonly</span> label: string,
+         public <span class="token builtin class-name">readonly</span> version: string,
+         public <span class="token builtin class-name">readonly</span> collapsibleState: vscode.TreeItemCollapsibleState
+     <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         super<span class="token punctuation">(</span>label, collapsibleState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         this.tooltip <span class="token operator">=</span> <span class="token variable"><span class="token variable">`</span>$<span class="token punctuation">{</span>this.label<span class="token punctuation">}</span>: $<span class="token punctuation">{</span>this.version<span class="token punctuation">}</span><span class="token variable">`</span></span><span class="token punctuation">;</span>
+         this.description <span class="token operator">=</span> this.version<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+ EOF
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"📝 创建 src/webview/versionPanel.ts..."</span>
+ <span class="token function">cat</span> <span class="token operator">&gt;</span> src/webview/versionPanel.ts <span class="token operator">&lt;&lt;</span> <span class="token string">'EOF'</span>
+ <span class="token function">import</span> * as vscode from <span class="token string">'vscode'</span><span class="token punctuation">;</span>
+ <span class="token function">import</span> * as path from <span class="token string">'path'</span><span class="token punctuation">;</span>
+ <span class="token function">import</span> <span class="token punctuation">{</span> VersionProvider <span class="token punctuation">}</span> from <span class="token string">'../versionProvider'</span><span class="token punctuation">;</span>
+
+ <span class="token builtin class-name">export</span> class VersionPanel <span class="token punctuation">{</span>
+     public static currentPanel: VersionPanel <span class="token operator">|</span> undefined<span class="token punctuation">;</span>
+     private <span class="token builtin class-name">readonly</span> _panel: vscode.WebviewPanel<span class="token punctuation">;</span>
+     private _disposables: vscode.Disposable<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+     private versionProvider: VersionProvider<span class="token punctuation">;</span>
+
+     public static <span class="token builtin class-name">readonly</span> viewType <span class="token operator">=</span> <span class="token string">'versionInfo'</span><span class="token punctuation">;</span>
+
+     constructor<span class="token punctuation">(</span>private <span class="token builtin class-name">readonly</span> context: vscode.ExtensionContext<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         this.versionProvider <span class="token operator">=</span> new VersionProvider<span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+
+     public createOrShow<span class="token punctuation">(</span><span class="token punctuation">)</span>: void <span class="token punctuation">{</span>
+         const <span class="token function">column</span> <span class="token operator">=</span> vscode.ViewColumn.Two<span class="token punctuation">;</span>
+
+         <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>VersionPanel.currentPanel<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+             VersionPanel.currentPanel._panel.reveal<span class="token punctuation">(</span>column<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token builtin class-name">return</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+
+         const panel <span class="token operator">=</span> vscode.window.createWebviewPanel<span class="token punctuation">(</span>
+             VersionPanel.viewType,
+             <span class="token string">'版本信息'</span>,
+             column,
+             <span class="token punctuation">{</span>
+                 enableScripts: true,
+                 localResourceRoots: <span class="token punctuation">[</span>
+                     vscode.Uri.file<span class="token punctuation">(</span>path.join<span class="token punctuation">(</span>this.context.extensionPath, <span class="token string">'src'</span>, <span class="token string">'webview'</span><span class="token punctuation">))</span>
+                 <span class="token punctuation">]</span>
+             <span class="token punctuation">}</span>
+         <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         VersionPanel.currentPanel <span class="token operator">=</span> new VersionPanel<span class="token punctuation">(</span>this.context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         VersionPanel.currentPanel._panel <span class="token operator">=</span> panel<span class="token punctuation">;</span>
+         VersionPanel.currentPanel._update<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         panel.onDidDispose<span class="token punctuation">((</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> this.dispose<span class="token punctuation">(</span><span class="token punctuation">)</span>, null, this._disposables<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+
+     public refresh<span class="token punctuation">(</span><span class="token punctuation">)</span>: void <span class="token punctuation">{</span>
+         <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>VersionPanel.currentPanel<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+             VersionPanel.currentPanel._update<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span>
+
+     public dispose<span class="token punctuation">(</span><span class="token punctuation">)</span>: void <span class="token punctuation">{</span>
+         VersionPanel.currentPanel <span class="token operator">=</span> undefined<span class="token punctuation">;</span>
+
+         this._panel.dispose<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span>this._disposables.length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+             const x <span class="token operator">=</span> this._disposables.pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 x.dispose<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span>
+
+     private _update<span class="token punctuation">(</span><span class="token punctuation">)</span>: void <span class="token punctuation">{</span>
+         const webview <span class="token operator">=</span> this._panel.webview<span class="token punctuation">;</span>
+         this._panel.title <span class="token operator">=</span> <span class="token string">'版本信息'</span><span class="token punctuation">;</span>
+         this._panel.webview.html <span class="token operator">=</span> this._getHtmlForWebview<span class="token punctuation">(</span>webview<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+
+     private _getHtmlForWebview<span class="token punctuation">(</span>webview: vscode.Webview<span class="token punctuation">)</span>: string <span class="token punctuation">{</span>
+         const versionInfo <span class="token operator">=</span> this.versionProvider.getVersionInfo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token builtin class-name">return</span> <span class="token variable"><span class="token variable">`</span><span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">&gt;</span>
+ <span class="token operator">&lt;</span>html <span class="token assign-left variable">lang</span><span class="token operator">=</span><span class="token string">"zh-CN"</span><span class="token operator">&gt;</span>
+ <span class="token operator">&lt;</span>head<span class="token operator">&gt;</span>
+     <span class="token operator">&lt;</span>meta <span class="token assign-left variable">charset</span><span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">&gt;</span>
+     <span class="token operator">&lt;</span>meta <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"viewport"</span> <span class="token assign-left variable">content</span><span class="token operator">=</span><span class="token string">"width=device-width, initial-scale=1.0"</span><span class="token operator">&gt;</span>
+     <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span>版本信息<span class="token operator">&lt;</span>/title<span class="token operator">&gt;</span>
+     <span class="token operator">&lt;</span>style<span class="token operator">&gt;</span>
+         body <span class="token punctuation">{</span>
+             font-family: var<span class="token punctuation">(</span>--vscode-font-family<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             font-size: var<span class="token punctuation">(</span>--vscode-font-size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             color: var<span class="token punctuation">(</span>--vscode-foreground<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             background-color: var<span class="token punctuation">(</span>--vscode-editor-background<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             padding: 20px<span class="token punctuation">;</span>
+             margin: <span class="token number">0</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+         .version-container <span class="token punctuation">{</span>
+             max-width: 600px<span class="token punctuation">;</span>
+             margin: <span class="token number">0</span> auto<span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+         .version-header <span class="token punctuation">{</span>
+             text-align: center<span class="token punctuation">;</span>
+             margin-bottom: 30px<span class="token punctuation">;</span>
+             padding-bottom: 20px<span class="token punctuation">;</span>
+             border-bottom: 1px solid var<span class="token punctuation">(</span>--vscode-panel-border<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+         .version-item <span class="token punctuation">{</span>
+             display: flex<span class="token punctuation">;</span>
+             justify-content: space-between<span class="token punctuation">;</span>
+             align-items: center<span class="token punctuation">;</span>
+             padding: 15px<span class="token punctuation">;</span>
+             margin-bottom: 10px<span class="token punctuation">;</span>
+             background-color: var<span class="token punctuation">(</span>--vscode-editor-inactiveSelectionBackground<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             border-radius: 6px<span class="token punctuation">;</span>
+             border-left: 4px solid var<span class="token punctuation">(</span>--vscode-button-background<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+         .version-label <span class="token punctuation">{</span>
+             font-weight: bold<span class="token punctuation">;</span>
+             color: var<span class="token punctuation">(</span>--vscode-button-background<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+         .version-value <span class="token punctuation">{</span>
+             font-family: var<span class="token punctuation">(</span>--vscode-editor-font-family<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             color: var<span class="token punctuation">(</span>--vscode-textLink-foreground<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+         .refresh-btn <span class="token punctuation">{</span>
+             background-color: var<span class="token punctuation">(</span>--vscode-button-background<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             color: var<span class="token punctuation">(</span>--vscode-button-foreground<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             border: none<span class="token punctuation">;</span>
+             padding: 10px 20px<span class="token punctuation">;</span>
+             border-radius: 4px<span class="token punctuation">;</span>
+             cursor: pointer<span class="token punctuation">;</span>
+             font-size: 14px<span class="token punctuation">;</span>
+             margin-top: 20px<span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+         .refresh-btn:hover <span class="token punctuation">{</span>
+             background-color: var<span class="token punctuation">(</span>--vscode-button-hoverBackground<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+         .timestamp <span class="token punctuation">{</span>
+             text-align: center<span class="token punctuation">;</span>
+             color: var<span class="token punctuation">(</span>--vscode-descriptionForeground<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             font-size: 12px<span class="token punctuation">;</span>
+             margin-top: 20px<span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+     <span class="token operator">&lt;</span>/style<span class="token operator">&gt;</span>
+ <span class="token operator">&lt;</span>/head<span class="token operator">&gt;</span>
+ <span class="token operator">&lt;</span>body<span class="token operator">&gt;</span>
+     <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-container"</span><span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-header"</span><span class="token operator">&gt;</span>
+             <span class="token operator">&lt;</span>h<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span>系统版本信息<span class="token operator">&lt;</span>/h<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span>
+             <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span>当前开发环境版本详情<span class="token operator">&lt;</span>/p<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>/div<span class="token operator">&gt;</span>
+         
+         <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-item"</span><span class="token operator">&gt;</span>
+             <span class="token operator">&lt;</span>span <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-label"</span><span class="token operator">&gt;</span>VS Code<span class="token operator">&lt;</span>/span<span class="token operator">&gt;</span>
+             <span class="token operator">&lt;</span>span <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-value"</span><span class="token operator">&gt;</span>$<span class="token punctuation">{</span>versionInfo.vscode <span class="token operator">||</span> <span class="token string">'获取中...'</span><span class="token punctuation">}</span><span class="token operator">&lt;</span>/span<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>/div<span class="token operator">&gt;</span>
+         
+         <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-item"</span><span class="token operator">&gt;</span>
+             <span class="token operator">&lt;</span>span <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-label"</span><span class="token operator">&gt;</span>Node.js<span class="token operator">&lt;</span>/span<span class="token operator">&gt;</span>
+             <span class="token operator">&lt;</span>span <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-value"</span><span class="token operator">&gt;</span>$<span class="token punctuation">{</span>versionInfo.node <span class="token operator">||</span> <span class="token string">'获取中...'</span><span class="token punctuation">}</span><span class="token operator">&lt;</span>/span<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>/div<span class="token operator">&gt;</span>
+         
+         <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-item"</span><span class="token operator">&gt;</span>
+             <span class="token operator">&lt;</span>span <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-label"</span><span class="token operator">&gt;</span>Git<span class="token operator">&lt;</span>/span<span class="token operator">&gt;</span>
+             <span class="token operator">&lt;</span>span <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-value"</span><span class="token operator">&gt;</span>$<span class="token punctuation">{</span>versionInfo.git <span class="token operator">||</span> <span class="token string">'获取中...'</span><span class="token punctuation">}</span><span class="token operator">&lt;</span>/span<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>/div<span class="token operator">&gt;</span>
+         
+         <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-item"</span><span class="token operator">&gt;</span>
+             <span class="token operator">&lt;</span>span <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-label"</span><span class="token operator">&gt;</span>NPM<span class="token operator">&lt;</span>/span<span class="token operator">&gt;</span>
+             <span class="token operator">&lt;</span>span <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-value"</span><span class="token operator">&gt;</span>$<span class="token punctuation">{</span>versionInfo.npm <span class="token operator">||</span> <span class="token string">'获取中...'</span><span class="token punctuation">}</span><span class="token operator">&lt;</span>/span<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>/div<span class="token operator">&gt;</span>
+         
+         <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-item"</span><span class="token operator">&gt;</span>
+             <span class="token operator">&lt;</span>span <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-label"</span><span class="token operator">&gt;</span>操作系统<span class="token operator">&lt;</span>/span<span class="token operator">&gt;</span>
+             <span class="token operator">&lt;</span>span <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"version-value"</span><span class="token operator">&gt;</span>$<span class="token punctuation">{</span>versionInfo.os <span class="token operator">||</span> <span class="token string">'获取中...'</span><span class="token punctuation">}</span><span class="token operator">&lt;</span>/span<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>/div<span class="token operator">&gt;</span>
+         
+         <span class="token operator">&lt;</span>div <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"timestamp"</span><span class="token operator">&gt;</span>
+             最后更新: $<span class="token punctuation">{</span>new Date<span class="token punctuation">(</span><span class="token punctuation">)</span>.toLocaleString<span class="token punctuation">(</span><span class="token string">'zh-CN'</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+         <span class="token operator">&lt;</span>/div<span class="token operator">&gt;</span>
+     <span class="token operator">&lt;</span>/div<span class="token operator">&gt;</span>
+ <span class="token operator">&lt;</span>/body<span class="token operator">&gt;</span>
+ <span class="token operator">&lt;</span>/html<span class="token operator">&gt;</span><span class="token variable">`</span></span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+ EOF
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"📝 创建 scripts/get-versions.sh..."</span>
+ <span class="token function">cat</span> <span class="token operator">&gt;</span> scripts/get-versions.sh <span class="token operator">&lt;&lt;</span> <span class="token string">'EOF'</span>
+ <span class="token comment">#!/bin/bash</span>
+
+ <span class="token comment"># 获取版本信息的 Bash 脚本</span>
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"正在获取版本信息..."</span>
+
+ <span class="token comment"># 获取 Node.js 版本</span>
+ <span class="token assign-left variable">NODE_VERSION</span><span class="token operator">=</span><span class="token string">""</span>
+ <span class="token keyword keyword-if">if</span> <span class="token builtin class-name">command</span> <span class="token parameter variable">-v</span> <span class="token function">node</span> <span class="token operator">&amp;&gt;</span> /dev/null<span class="token punctuation">;</span> <span class="token keyword keyword-then">then</span>
+     <span class="token assign-left variable">NODE_VERSION</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">node</span> <span class="token parameter variable">--version</span> <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null<span class="token variable">)</span></span>
+ <span class="token keyword keyword-fi">fi</span>
+
+ <span class="token comment"># 获取 Git 版本</span>
+ <span class="token assign-left variable">GIT_VERSION</span><span class="token operator">=</span><span class="token string">""</span>
+ <span class="token keyword keyword-if">if</span> <span class="token builtin class-name">command</span> <span class="token parameter variable">-v</span> <span class="token function">git</span> <span class="token operator">&amp;&gt;</span> /dev/null<span class="token punctuation">;</span> <span class="token keyword keyword-then">then</span>
+     <span class="token assign-left variable">GIT_VERSION</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">git</span> <span class="token parameter variable">--version</span> <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/git version //'</span><span class="token variable">)</span></span>
+ <span class="token keyword keyword-fi">fi</span>
+
+ <span class="token comment"># 获取 NPM 版本</span>
+ <span class="token assign-left variable">NPM_VERSION</span><span class="token operator">=</span><span class="token string">""</span>
+ <span class="token keyword keyword-if">if</span> <span class="token builtin class-name">command</span> <span class="token parameter variable">-v</span> <span class="token function">npm</span> <span class="token operator">&amp;&gt;</span> /dev/null<span class="token punctuation">;</span> <span class="token keyword keyword-then">then</span>
+     <span class="token assign-left variable">NPM_VERSION</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">npm</span> <span class="token parameter variable">--version</span> <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null<span class="token variable">)</span></span>
+ <span class="token keyword keyword-fi">fi</span>
+
+ <span class="token comment"># 获取操作系统信息</span>
+ <span class="token assign-left variable">OS_INFO</span><span class="token operator">=</span><span class="token string">""</span>
+ <span class="token keyword keyword-if">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">"<span class="token environment constant">$OSTYPE</span>"</span> <span class="token operator">==</span> <span class="token string">"linux-gnu"</span>* <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword keyword-then">then</span>
+     <span class="token assign-left variable">OS_INFO</span><span class="token operator">=</span><span class="token string">"Linux <span class="token variable"><span class="token variable">$(</span><span class="token function">uname</span> <span class="token parameter variable">-r</span><span class="token variable">)</span></span>"</span>
+ <span class="token keyword keyword-elif">elif</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">"<span class="token environment constant">$OSTYPE</span>"</span> <span class="token operator">==</span> <span class="token string">"darwin"</span>* <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword keyword-then">then</span>
+     <span class="token assign-left variable">OS_INFO</span><span class="token operator">=</span><span class="token string">"macOS <span class="token variable"><span class="token variable">$(</span>sw_vers <span class="token parameter variable">-productVersion</span><span class="token variable">)</span></span>"</span>
+ <span class="token keyword keyword-elif">elif</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">"<span class="token environment constant">$OSTYPE</span>"</span> <span class="token operator">==</span> <span class="token string">"msys"</span> <span class="token operator">||</span> <span class="token string">"<span class="token environment constant">$OSTYPE</span>"</span> <span class="token operator">==</span> <span class="token string">"cygwin"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword keyword-then">then</span>
+     <span class="token assign-left variable">OS_INFO</span><span class="token operator">=</span><span class="token string">"Windows <span class="token variable"><span class="token variable">$(</span>cmd //c ver <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-o</span> <span class="token string">'[0-9]\+\.[0-9]\+\.[0-9]\+'</span><span class="token variable">)</span></span>"</span>
+ <span class="token keyword keyword-else">else</span>
+     <span class="token assign-left variable">OS_INFO</span><span class="token operator">=</span><span class="token string">"Unknown OS"</span>
+ <span class="token keyword keyword-fi">fi</span>
+
+ <span class="token comment"># 输出结果</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"NODE: <span class="token variable">${NODE_VERSION<span class="token operator">:-</span>未安装}</span>"</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"GIT: <span class="token variable">${GIT_VERSION<span class="token operator">:-</span>未安装}</span>"</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"NPM: <span class="token variable">${NPM_VERSION<span class="token operator">:-</span>未安装}</span>"</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"OS: <span class="token variable">${OS_INFO<span class="token operator">:-</span>未知}</span>"</span>
+ EOF
+
+ <span class="token comment"># 设置脚本执行权限</span>
+ <span class="token function">chmod</span> +x scripts/get-versions.sh
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"🎯 创建项目安装和运行脚本..."</span>
+ <span class="token function">cat</span> <span class="token operator">&gt;</span> install-and-run.sh <span class="token operator">&lt;&lt;</span> <span class="token string">'EOF'</span>
+ <span class="token comment">#!/bin/bash</span>
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"🔧 安装项目依赖..."</span>
+ <span class="token function">npm</span> <span class="token function">install</span>
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"🔨 编译 TypeScript..."</span>
+ <span class="token function">npm</span> run compile
+
+ <span class="token builtin class-name">echo</span> <span class="token string">"✅ 项目创建完成！"</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">""</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"📋 接下来的步骤："</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"1. 在 VS Code 中打开项目文件夹"</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"2. 按 F5 启动扩展调试模式"</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"3. 在新窗口中测试插件功能"</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">""</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"🚀 或者直接运行: code . &amp;&amp; code --extensionDevelopmentPath=."</span>
+ EOF
+
+ <span class="token function">chmod</span> +x install-and-run.sh
+
+ <span class="token builtin class-name">echo</span> <span class="token string">""</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"🎉 项目创建完成！"</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"📁 项目目录: <span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>"</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">""</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"📋 项目结构："</span>
+ <span class="token function">find</span> <span class="token builtin class-name">.</span> <span class="token parameter variable">-type</span> f <span class="token parameter variable">-name</span> <span class="token string">"*.json"</span> <span class="token parameter variable">-o</span> <span class="token parameter variable">-name</span> <span class="token string">"*.ts"</span> <span class="token parameter variable">-o</span> <span class="token parameter variable">-name</span> <span class="token string">"*.sh"</span> <span class="token parameter variable">-o</span> <span class="token parameter variable">-name</span> <span class="token string">"*.md"</span> <span class="token operator">|</span> <span class="token function">sort</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">""</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"🔧 下一步操作："</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"1. cd <span class="token variable">$PROJECT_NAME</span>"</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"2. bash install-and-run.sh"</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"3. 在 VS Code 中按 F5 启动调试"</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">""</span>
+ <span class="token builtin class-name">echo</span> <span class="token string">"✨ 享受您的 VS Code 插件开发之旅！"</span>
+</code></pre><p>效果图<br>
+<img src="image.png" alt="alt text"></p>
+<ol start="2">
+<li>
+<p>生成一个 node 版本切换页面，使用 nvm 控制 node 版本， 使用 bash 脚本，升级当前代码<br>
+在 win 环境下 nvm 运行环境有问题，暂时不兼容 win<br>
+<img src="image-1.png" alt="alt text"><br>
+<img src="image-5.png" alt="alt text"><br>
+<img src="image-3.png" alt="alt text"></p>
+</li>
+<li>
+<p>生成一个获取当前页面 Function list 的页面，包含函数位置跳转（AI 额度上限 手动粘贴<br>
+_panel 引用错误</p>
+</li>
+</ol>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>  <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>_panel
+  VersionPanel<span class="token punctuation">.</span>currentPanel<span class="token operator">?.</span>_panel<span class="token operator">?.</span>webview<span class="token punctuation">.</span>postMessage
+</code></pre><p>vscode 重复引用报错，阻碍JS 执行</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-const">const</span> vscode <span class="token operator">=</span> <span class="token function">acquireVsCodeApi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p><img src="image-2.png" alt="alt text"></p>
+</li>
+</ol>
+<h3 id="插件调试">插件调试 </h3>
+<p>Help -&gt; Toggle Developer Tools<br>
+<img src="image-6.png" alt="alt text"></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
