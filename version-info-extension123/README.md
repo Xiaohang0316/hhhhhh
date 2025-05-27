@@ -36,9 +36,9 @@
 - TypeScript
 - VS Code Extension API
 - Bash/Batch 脚本
-
+<!-- 
 UI
 ![alt text](image.png)
 切换成功
 ![alt text](image-1.png)
-![alt text](image-2.png)
+![alt text](image-2.png) -->

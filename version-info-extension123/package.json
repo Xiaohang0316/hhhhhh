@@ -3,7 +3,8 @@
     "displayName": "版本信息插件",
     "description": "一个用于显示和管理版本信息的VS Code插件",
     "version": "1.0.0",
-    "publisher": "your-publisher-name",
+    "publisher": "hhhhh",
+    "repository": "https://github.com/Xiaohang0316/hhhhhh.git",
     "engines": {
         "vscode": "^1.60.0"
     },

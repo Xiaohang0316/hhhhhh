@@ -1,0 +1,112 @@
+ <script>
+       
+
+        // VS Code API
+        // const vscode = acquireVsCodeApi();
+        console.log('%c [ vscode ]-653', 'font-size:13px; background:pink; color:#bf2c9f;', vscode)
+
+        // 获取当前文件函数列表
+        function getFunctions() {
+            vscode.postMessage({
+                command: 'getFunctions'
+            });
+        }
+
+        // 全部折叠
+        function foldAll() {
+            const details = document.querySelectorAll('.function-details');
+            const chevrons = document.querySelectorAll('.chevron');
+            
+            details.forEach(detail => {
+                detail.classList.remove('expanded');
+            });
+            
+            chevrons.forEach(chevron => {
+                chevron.classList.remove('expanded');
+            });
+        }
+
+        // 全部展开
+        function expandAll() {
+            const details = document.querySelectorAll('.function-details');
+            const chevrons = document.querySelectorAll('.chevron');
+            
+            details.forEach(detail => {
+                detail.classList.add('expanded');
+            });
+            
+            chevrons.forEach(chevron => {
+                chevron.classList.add('expanded');
+            });
+        }
+
+        // 跳转到代码行
+        function jumpToLine(line) {
+            vscode.postMessage({
+                command: 'jumpToLine',
+                line: line
+            });
+        }
+
+        // 切换函数详情展开/折叠
+        // function toggleFunction(index) {
+        //     const details = document.querySelector(\`#function-\${index} .function-details\`);
+        //     const chevron = document.querySelector(\`#function-\${index} .chevron\`);
+            
+        //     if (details.classList.contains('expanded')) {
+        //         details.classList.remove('expanded');
+        //         chevron.classList.remove('expanded');
+        //     } else {
+        //         details.classList.add('expanded');
+        //         chevron.classList.add('expanded');
+        //     }
+        // }
+
+        // 监听来自扩展的消息
+        window.addEventListener('message', event => {
+            const message = event.data;
+            
+            if (message.command === 'updateFunctions') {
+                console.log('1212124')
+                updateFunctionList(message.functions);
+            }
+        });
+
+        // 更新函数列表
+        // function updateFunctionList(functions) {
+        //     const functionList = document.getElementById('functionList');
+            
+        //     if (!functions || functions.length === 0) {
+        //         functionList.innerHTML = \`
+        //             <div class="empty-state">
+        //                 <p>当前文件中未找到函数</p>
+        //                 <p>请确保文件包含JavaScript/TypeScript函数</p>
+        //             </div>
+        //         \`;
+        //         return;
+        //     }
+
+        //     const functionsHtml = functions.map((func, index) => \`
+        //         <div class="function-item" id="function-\${index}">
+        //             <div class="function-header" onclick="toggleFunction(\${index})">
+        //                 <div class="function-name">\${func.name}</div>
+        //                 <div style="display: flex; align-items: center; gap: 10px;">
+        //                     <span class="function-type">\${func.type}</span>
+        //                     <span class="chevron">▶</span>
+        //                 </div>
+        //             </div>
+        //             <div class="function-details">
+        //                 <div class="function-info">
+        //                     <span class="function-line">行号: \${func.line + 1}</span>
+        //                     <button class="jump-btn" onclick="jumpToLine(\${func.line})">跳转</button>
+        //                 </div>
+        //                 \${func.params ? \`<div class="function-params">参数: \${func.params}\</div>\` : ''}
+        //             </div>
+        //         </div>
+        //     \`).join('');
+
+        //     functionList.innerHTML = functionsHtml;
+        // }
+
+    
+    </script>

@@ -4,9 +4,204 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Node.js 版本管理</title>
- 
+    <style>
+        body {
+            font-family: var(--vscode-font-family);
+            font-size: var(--vscode-font-size);
+            color: var(--vscode-foreground);
+            background-color: var(--vscode-editor-background);
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--vscode-panel-border);
+        }
+        .current-version {
+            background-color: var(--vscode-button-background);
+            color: var(--vscode-button-foreground);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .version-section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--vscode-button-background);
+        }
+        .version-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .version-item {
+            background-color: var(--vscode-editor-inactiveSelectionBackground);
+            border: 1px solid var(--vscode-panel-border);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        .version-item:hover {
+            background-color: var(--vscode-list-hoverBackground);
+            border-color: var(--vscode-button-background);
+        }
+        .version-number {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .version-current {
+            background-color: var(--vscode-button-background);
+            color: var(--vscode-button-foreground);
+        }
+        .version-installed {
+            border-color: var(--vscode-textLink-foreground);
+        }
+        .switch-btn {
+            background-color: var(--vscode-button-background);
+            color: var(--vscode-button-foreground);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background-color 0.2s ease;
+        }
+        .switch-btn:hover {
+            background-color: var(--vscode-button-hoverBackground);
+        }
+        .switch-btn:disabled {
+            background-color: var(--vscode-button-secondaryBackground);
+            color: var(--vscode-button-secondaryForeground);
+            cursor: not-allowed;
+        }
+        .refresh-btn {
+            background-color: var(--vscode-button-background);
+            color: var(--vscode-button-foreground);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        .refresh-btn:hover {
+            background-color: var(--vscode-button-hoverBackground);
+        }
+        .timestamp {
+            text-align: center;
+            color: var(--vscode-descriptionForeground);
+            font-size: 12px;
+            margin-top: 20px;
+        }
+        .empty-state {
+            text-align: center;
+            color: var(--vscode-descriptionForeground);
+            padding: 40px;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        .status-current {
+            background-color: var(--vscode-button-background);
+            color: var(--vscode-button-foreground);
+        }
+        .status-installed {
+            background-color: var(--vscode-textLink-foreground);
+            color: var(--vscode-button-foreground);
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <div class="header">
+            <h1>Node.js 版本管理</h1>
+            <p>使用 NVM 管理 Node.js 版本</p>
+        </div>
+        
 
+
+        ${nodeVersionInfo.installed.length > 0 ? `
+        <div class="version-section">
+            <h3 class="section-title">已安装版本</h3>
+            <div class="version-grid">
+                ${nodeVersionInfo.installed.map(version => `
+                    <div class="version-item ${version === nodeVersionInfo.current ? 'version-current' : 'version-installed'}">
+                        <div class="version-number">
+                            ${version}
+                            ${version === nodeVersionInfo.current ? '<span class="status-badge status-current">当前</span>' : '<span class="status-badge status-installed">已安装</span>'}
+                        </div>
+                        <button class="switch-btn" ${version === nodeVersionInfo.current ? 'disabled' : ''} onclick="switchVersion('${version}')">
+                            ${version === nodeVersionInfo.current ? '当前版本' : '切换使用'}
+                        </button>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+        ` : ''}
+
+        ${nodeVersionInfo.available.length > 0 ? `
+        <div class="version-section">
+            <h3 class="section-title">最新可用版本 (前5个)</h3>
+            <div class="version-grid">
+                ${nodeVersionInfo.available.slice(0, 5).map(version => `
+                    <div class="version-item">
+                        <div class="version-number">${version}</div>
+                        <button class="switch-btn" onclick="switchVersion('${version}')">
+                            安装并使用
+                        </button>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+        ` : `
+        <div class="empty-state">
+            <p>无法获取可用版本信息</p>
+            <p>请确保已安装 NVM</p>
+        </div>
+        `}
+
+        <div style="text-align: center;">
+            <button class="refresh-btn" onclick="refresh()">刷新版本信息</button>
+        </div>
+        
+        <div class="timestamp">
+            最后更新: ${new Date().toLocaleString('zh-CN')}
+        </div>
+    </div>
+
+    <script>
+        const vscode = acquireVsCodeApi();
+
+        function switchVersion(version) {
+            vscode.postMessage({
+                command: 'switchVersion',
+                version: version
+            });
+        }
+
+        function refresh() {
+            vscode.postMessage({
+                command: 'refresh'
+            });
+        }
+    </script>
 </body>
 </html>

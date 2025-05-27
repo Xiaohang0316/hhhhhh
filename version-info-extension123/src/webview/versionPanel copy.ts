@@ -6,7 +6,7 @@ import { NodeVersionPanel } from './nodeVersionPanel';
 
 export class VersionPanel {
     public static currentPanel: VersionPanel | undefined;
-    private readonly _panel: vscode.WebviewPanel | undefined;
+    private readonly _panel: vscode.WebviewPanel;
     private _disposables: vscode.Disposable[] = [];
     private versionProvider: VersionProvider;
 
@@ -41,29 +41,7 @@ export class VersionPanel {
         VersionPanel.currentPanel._update();
 
         panel.onDidDispose(() => this.dispose(), null, this._disposables);
-        
-        // 监听来自 webview 的消息
-        panel.webview.onDidReceiveMessage(
-            message => {
-                switch (message.command) {
-                    case 'getFunctions':
-                        this.handleGetFunctions();
-                        break;
-                    case 'jumpToLine':
-                        this.handleJumpToLine(message.line);
-                        break;
-                    case 'switchVersion':
-                        // 处理版本切换
-                        this.nodeVersionPanel.switchVersion(message.version);
-                        break;
-                    case 'refresh':
-                        this.refresh();
-                        break;
-                }
-            },
-            null,
-            this._disposables
-        );
+       
     }
 
     public refresh(): void {
@@ -83,87 +61,6 @@ export class VersionPanel {
                 x.dispose();
             }
         }
-    }
-
-    private async handleGetFunctions() {
-        try {
-            const activeEditor = vscode.window.activeTextEditor;
-            if (!activeEditor) {
-                VersionPanel.currentPanel?._panel?.webview.postMessage({
-                    command: 'updateFunctions',
-                    functions: []
-                });
-                return;
-            }
-
-            const document = activeEditor.document;
-            const text = document.getText();
-            const functions = this.parseFunctions(text);
-            VersionPanel.currentPanel?._panel?.webview.postMessage({
-                command: 'updateFunctions',
-                functions: functions
-            });
-        } catch (error) {
-            console.error('获取函数失败:', error);
-            VersionPanel.currentPanel?._panel?.webview.postMessage({
-                command: 'updateFunctions',
-                functions: []
-            });
-        }
-    }
-
-    private handleJumpToLine(line: number) {
-        const activeEditor = vscode.window.activeTextEditor;
-        if (activeEditor) {
-            const position = new vscode.Position(line, 0);
-            const selection = new vscode.Selection(position, position);
-            activeEditor.selection = selection;
-            activeEditor.revealRange(selection, vscode.TextEditorRevealType.InCenter);
-            vscode.window.showTextDocument(activeEditor.document);
-        }
-    }
-
-    private parseFunctions(text: string): Array<{name: string, type: string, line: number, params?: string}> {
-        const functions: Array<{name: string, type: string, line: number, params?: string}> = [];
-        const lines = text.split('\n');
-
-        // JavaScript/TypeScript 函数匹配模式
-        const patterns = [
-            // function 声明: function functionName() {}
-            /^\s*(?:export\s+)?(?:async\s+)?function\s+([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(([^)]*)\)/,
-            // 箭头函数: const functionName = () => {}
-            /^\s*(?:export\s+)?(?:const|let|var)\s+([a-zA-Z_$][a-zA-Z0-9_$]*)\s*=\s*(?:async\s+)?\([^)]*\)\s*=>/,
-            // 方法定义: methodName() {}
-            /^\s*(?:public|private|protected)?\s*(?:static\s+)?(?:async\s+)?([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(([^)]*)\)\s*[:{]/,
-            // 类方法: public methodName() {}
-            /^\s*(?:public|private|protected)\s+(?:static\s+)?(?:async\s+)?([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(([^)]*)\)/
-        ];
-
-        lines.forEach((line, index) => {
-            patterns.forEach(pattern => {
-                const match = line.match(pattern);
-                if (match) {
-                    const functionName = match[1];
-                    const params = match[2] || '';
-                    
-                    // 确定函数类型
-                    let type = 'function';
-                    if (line.includes('async')) type = 'async';
-                    if (line.includes('class') || line.includes('public') || line.includes('private')) type = 'method';
-                    if (line.includes('=>')) type = 'arrow';
-                    if (line.includes('constructor')) type = 'constructor';
-
-                    functions.push({
-                        name: functionName,
-                        type: type,
-                        line: index,
-                        params: params.trim() || undefined
-                    });
-                }
-            });
-        });
-
-        return functions;
     }
 
     private async _update() {
@@ -307,121 +204,6 @@ export class VersionPanel {
             background-color: var(--vscode-textLink-foreground);
             color: var(--vscode-button-foreground);
         }
-        
-        /* Function section styles */
-        .function-section {
-            padding: 20px 0;
-        }
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--vscode-panel-border);
-        }
-        .function-controls {
-            display: flex;
-            gap: 10px;
-        }
-        .control-btn {
-            background-color: var(--vscode-button-background);
-            color: var(--vscode-button-foreground);
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 12px;
-            transition: background-color 0.2s ease;
-        }
-        .control-btn:hover {
-            background-color: var(--vscode-button-hoverBackground);
-        }
-        .function-list {
-            max-height: 500px;
-            overflow-y: auto;
-        }
-        .function-item {
-            background-color: var(--vscode-editor-inactiveSelectionBackground);
-            border: 1px solid var(--vscode-panel-border);
-            border-radius: 6px;
-            margin-bottom: 10px;
-            overflow: hidden;
-            transition: all 0.2s ease;
-        }
-        .function-item:hover {
-            border-color: var(--vscode-button-background);
-        }
-        .function-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 16px;
-            cursor: pointer;
-            background-color: var(--vscode-list-hoverBackground);
-        }
-        .function-header:hover {
-            background-color: var(--vscode-list-activeSelectionBackground);
-        }
-        .function-name {
-            font-weight: bold;
-            color: var(--vscode-button-background);
-            font-family: var(--vscode-editor-font-family, monospace);
-        }
-        .function-type {
-            font-size: 12px;
-            padding: 2px 8px;
-            border-radius: 12px;
-            background-color: var(--vscode-button-background);
-            color: var(--vscode-button-foreground);
-        }
-        .function-details {
-            padding: 0 16px 12px;
-            display: none;
-            border-top: 1px solid var(--vscode-panel-border);
-        }
-        .function-details.expanded {
-            display: block;
-            padding-top: 12px;
-        }
-        .function-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-        .function-line {
-            font-size: 12px;
-            color: var(--vscode-descriptionForeground);
-        }
-        .jump-btn {
-            background-color: var(--vscode-textLink-foreground);
-            color: var(--vscode-button-foreground);
-            border: none;
-            padding: 4px 12px;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 11px;
-        }
-        .jump-btn:hover {
-            opacity: 0.8;
-        }
-        .function-params {
-            background-color: var(--vscode-editor-background);
-            padding: 8px;
-            border-radius: 4px;
-            font-family: var(--vscode-editor-font-family, monospace);
-            font-size: 12px;
-            color: var(--vscode-textLink-foreground);
-            margin-top: 8px;
-        }
-        .chevron {
-            transition: transform 0.2s ease;
-            color: var(--vscode-button-background);
-        }
-        .chevron.expanded {
-            transform: rotate(90deg);
-        }
     </style>
     <style>
         body {
@@ -512,7 +294,7 @@ export class VersionPanel {
         <div class="tabs">
             <div class="tab active" data-tab="vscode">Version</div>
             <div class="tab" data-tab="node">Node.js</div>
-            <div class="tab" data-tab="git">Functions</div>
+            <div class="tab" data-tab="git">Git</div>
             <div class="tab" data-tab="npm">NPM</div>
         </div>
 
@@ -614,6 +396,7 @@ export class VersionPanel {
         }
     </script>
         </div>
+        </div>
 
         <div id="git" class="tab-content">
             <div class="function-section">
@@ -644,132 +427,9 @@ export class VersionPanel {
             最后更新: ${new Date().toLocaleString('zh-CN')}
         </div>
     </div>
+
     <script>
-       
-
-        // VS Code API
-        // const vscode = acquireVsCodeApi();
-        console.log('%c [ vscode ]-653', 'font-size:13px; background:pink; color:#bf2c9f;', vscode)
-
-        // 获取当前文件函数列表
-        function getFunctions() {
-            vscode.postMessage({
-                command: 'getFunctions'
-            });
-        }
-
-        // 全部折叠
-        function foldAll() {
-            const details = document.querySelectorAll('.function-details');
-            const chevrons = document.querySelectorAll('.chevron');
-            
-            details.forEach(detail => {
-                detail.classList.remove('expanded');
-            });
-            
-            chevrons.forEach(chevron => {
-                chevron.classList.remove('expanded');
-            });
-        }
-
-        // 全部展开
-        function expandAll() {
-            const details = document.querySelectorAll('.function-details');
-            const chevrons = document.querySelectorAll('.chevron');
-            
-            details.forEach(detail => {
-                detail.classList.add('expanded');
-            });
-            
-            chevrons.forEach(chevron => {
-                chevron.classList.add('expanded');
-            });
-        }
-
-        // 跳转到代码行
-        function jumpToLine(line) {
-            vscode.postMessage({
-                command: 'jumpToLine',
-                line: line
-            });
-        }
-
-        // 切换函数详情展开/折叠
-        function toggleFunction(index) {
-            const details = document.querySelector(\`#function-\${index} .function-details\`);
-            const chevron = document.querySelector(\`#function-\${index} .chevron\`);
-            
-            if (details.classList.contains('expanded')) {
-                details.classList.remove('expanded');
-                chevron.classList.remove('expanded');
-            } else {
-                details.classList.add('expanded');
-                chevron.classList.add('expanded');
-            }
-        }
-
-        // 监听来自扩展的消息
-        window.addEventListener('message', event => {
-            const message = event.data;
-            
-            if (message.command === 'updateFunctions') {
-                console.log('1212124')
-                updateFunctionList(message.functions);
-            }
-        });
-
-        // // 更新函数列表
-        function updateFunctionList(functions) {
-            const functionList = document.getElementById('functionList');
-            
-            if (!functions || functions.length === 0) {
-                functionList.innerHTML = \`
-                    <div class="empty-state">
-                        <p>当前文件中未找到函数</p>
-                        <p>请确保文件包含JavaScript/TypeScript函数</p>
-                    </div>
-                \`;
-                return;
-            }
-
-            const functionsHtml = functions.map((func, index) => \`
-                <div class="function-item" id="function-\${index}">
-                    <div class="function-header" onclick="toggleFunction(\${index})">
-                        <div class="function-name">\${func.name}</div>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <span class="function-type">\${func.type}</span>
-                            <span class="chevron">▶</span>
-                        </div>
-                    </div>
-                    <div class="function-details">
-                        <div class="function-info">
-                            <span class="function-line">行号: \${func.line + 1}</span>
-                            <button class="jump-btn" onclick="jumpToLine(\${func.line})">跳转</button>
-                        </div>
-                        \${func.params ? \`<div class="function-params">参数: \${func.params}\</div>\` : ''}
-                    </div>
-                </div>
-            \`).join('');
-
-            functionList.innerHTML = functionsHtml;
-        }
-
-        // Node.js 版本切换相关函数
-        function switchVersion(version) {
-            vscode.postMessage({
-                command: 'switchVersion',
-                version: version
-            });
-        }
-
-        function refresh() {
-            vscode.postMessage({
-                command: 'refresh'
-            });
-        }
-    </script>
-    <script>
-     // Tab 切换逻辑
+        // Tab 切换逻辑
         const tabs = document.querySelectorAll('.tab');
         const contents = document.querySelectorAll('.tab-content');
 
@@ -787,8 +447,6 @@ export class VersionPanel {
             });
         });
     </script>
-    
-
 </body>
 </html>
 `;
