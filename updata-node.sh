@@ -891,7 +891,7 @@ EOF
 
 }
 
-cd ./version-info-extension456
+cd ./version-info-extension789
 create_bash_scripts
 update_typescript_files
 update_package_json
